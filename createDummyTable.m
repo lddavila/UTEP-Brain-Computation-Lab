@@ -10,5 +10,5 @@ execute(conn,sqlquery)
 
 %reads the dummytable, and prints its contents, should be empty on first
 %run
-rows = sqlread(conn,"dummytable");
+rows = sqlread(conn,"dummy_table");
  disp(rows)
