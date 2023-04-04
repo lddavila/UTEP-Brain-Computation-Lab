@@ -1,0 +1,61 @@
+STEPS FOR CREATING PROBABILITY GRAPHS:
+
+1.) Create the psychometric functions for whatever experiment you want to use
+2.) Fit those functions with sigmoids/parabolas/lines
+3.) Cluster your sigmoid data 
+4.) Create files containing the Max Vs Shift Clusters data
+5.) Take the random name given to each cluster file and rename it to the correct name
+6.) Now you're ready to begin
+7.) Create a variable that appears as follows 
+
+DataSets = ["Experiment you're analyzing|Travel Pixel","Experiment you're analyzing|Stopping Points","Experiment you're analyzing|Rotation Points","Experiment you're analyzing|Reward Choice"];
+
+8.) Now call collectAllDataInAMap as follows
+
+	newData = collectAllDataInAMap(DataSets);
+
+9.)  Now call storeClustersInNewDirectory() as follows
+
+	directoryWhereYouWantToStoreYourClusters = storeClustersInNewDirectory("Name of directory you want, in string format");
+
+10.) Call getSizeOFAllDataSets() as follows
+	
+	sizeOfEachDataSets = getSizeOfAllDataSets(newData)
+
+11.) Call getSizesOfEachCluster() as follows
+	
+	sizeOfEachClusterInEachDataSet = getSizeOfEachCluster("directory where all your cluster files are stored, in string format")
+
+12.) Call calculatePopulationProbabilities() as follows
+	
+	probabilities = calculatePopulationProbabilities(sizeOfEachClusterInEachDataSet,sizeofEachDataSet);
+
+13.) Use the following code to save your work in the workspace
+	
+	assignin('base','nameYouWantToStoreProbabilitiesAsInTheWorkspace',probabilities)
+
+14.) You now have a map where the keys are the cluster names, and the values are probabilities of a rat belonging to that specific cluster given that it exists in the data set, stored in your workspace as nameYouWantToStoreProbabilitiesAsInTheWorkSpace
+
+15.) You can save these into a table with the following (KEEP THE "Cluster_Names" AND "Probabilities" variable names, otherwise code below this step won't work)
+	
+	Cluster_Names = keys(nameYouWantToStoreProbabilitiesASInTheWorkSpace).';
+	Probabilities = values(nameYouWantToStoreProbabilitiesAsInTheWorkSpace).';
+	tableOfClustersToProbabilities = table(Cluster_Names, Probabilities);
+
+16.) Now Write this table using the following line of code
+	
+	writetable(tableOfClustersToProbabilities,'FileNameYouWant.xlsx')
+
+17.) now call countRatAppearencesInDataSet() as follows
+	
+	eachRatsAppearenceInTheDataSet = countRatAppearencesInDataSet(newData)
+
+
+18.) Call countRatAppearencesInCluster()
+	
+	eachRatsAppearenceInEachCluster = countRatAppearencesInCluster(directoryWhereYouWantToStoreYourClusters);
+
+20.) The data produced in steps 17 and 18 can be stored by repeating steps 13,14,15,16
+
+21.) 
+
