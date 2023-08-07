@@ -9,15 +9,17 @@
 % newTable = getTable("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab-Remote-Databases-and-Serendipity-App\Data Analysis\lg_boost\Reward Choice Sigmoid Data");
 
 
-newTable = getTable("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab-Remote-Databases-and-Serendipity-App\Data Analysis\Oxy\Travel Pixel Sigmoid Data");
+% newTable = getTable("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab-Remote-Databases-and-Serendipity-App\Data Analysis\Oxy\Travel Pixel Sigmoid Data");
 % newTable = getTable("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab-Remote-Databases-and-Serendipity-App\Data Analysis\Oxy\Stopping Points Sigmoid Data");
 % newTable = getTable("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab-Remote-Databases-and-Serendipity-App\Data Analysis\Oxy\Rotation Points Sigmoid Data");
-% newTable = getTable("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab-Remote-Databases-and-Serendipity-App\Data Analysis\Oxy\Reward Choice Sigmoid Data");
+%newTable = getTable("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab-Remote-Databases-and-Serendipity-App\Data Analysis\Oxy\Reward Choice Sigmoid Data");
+% newTable = getTable("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab-Remote-Databases-and-Serendipity-App\Data Analysis\Old Base Data\Rotation Points\Rotation Pts Sigmoid Data");
+newTable = getTable("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab-Remote-Databases-and-Serendipity-App\Data Analysis\Old Base Data\Reaction Time 1st\Reaction Time Sigmoid Data");
 figure
 % RewardChoiceSigmoidClustering()
 %Get ALL sigmoid data, and scale it using log and absolute value
 sigmoidMax = log(abs(newTable.A));
-horizShift = log(abs(newTable.B));
+horizShift = log(abs(newTable.C));
 s = scatter(sigmoidMax,horizShift);
 dt = datatip(s,sigmoidMax,horizShift);
 labels = newTable.D;

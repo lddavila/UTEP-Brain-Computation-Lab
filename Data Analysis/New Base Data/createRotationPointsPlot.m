@@ -20,7 +20,8 @@ sigmoidSteepness = log(abs(newTable.C));
 labels = newTable.D;
 shiftVsSteepness = [sigmoidShift,sigmoidSteepness];
 labels = [labels,labels];
-createThePlot(shiftVsSteepness,labels,3,"Max","Steepness", "Rotation Points","H")
+display(shiftVsSteepness)
+createThePlot(shiftVsSteepness,labels,3,"Max","Steepness", "Rotation Points","J")
 
 % sigmoidShift = log(abs(newTable.B));
 % sigmoidSteepness = log(abs(newTable.C));

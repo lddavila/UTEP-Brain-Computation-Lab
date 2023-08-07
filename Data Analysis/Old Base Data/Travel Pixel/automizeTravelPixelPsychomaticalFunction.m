@@ -1,6 +1,7 @@
 function automizeTravelPixelPsychomaticalFunction
     function [T] = createMap()
-        query = "SELECT referencetime, subjectid, mazenumber FROM live_table;";
+        query = "SELECT referencetime, subjectid, mazenumber FROM live_table;";       
+        
         local = fetch(conn,query);
 
         %take the number of rows in the table
@@ -240,6 +241,9 @@ while counter <= size(T,1)
                 query = strcat("SELECT * FROM featuretable WHERE referencetime LIKE '",theformattedDate,"%'"," AND subjectid = '", animalsOnThatDate{secondaryCounter},"';");
 
                 disp(query);
+   
+
+
 
                 searchResults = fetch(conn,query);
 %                 display(searchResults)

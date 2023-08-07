@@ -1,6 +1,6 @@
 foodDeprivationDataSets =["Food Deprivation|Travel Pixel","Food Deprivation|Stopping Points", "Food Deprivation|Rotation Points","Food Deprivation|Reaction Time","Food Deprivation|Reward Choice"];
 foodDepData = collectAllDataInAMap(foodDeprivationDataSets);
-foodDeprDirectory = storeClustersInNewDirectory('Food Deprivation');
+% foodDeprDirectory = storeClustersInNewDirectory('Food Deprivation');
 % % createPlots(foodDepData('Food Deprivation|Travel Pixel'),3,'Travel Pixel','A',foodDeprDirectory,'Food Deprivation')
 % % createPlots(foodDepData('Food Deprivation|Stopping Points'),3,'Stopping Points','D',foodDeprDirectory,'Food Deprivation');
 % % createPlots(foodDepData('Food Deprivation|Rotation Points'),3,'Rotation Points','G',foodDeprDirectory,'Food Deprivation');
@@ -9,17 +9,14 @@ foodDeprDirectory = storeClustersInNewDirectory('Food Deprivation');
 sizesOfFoodDepData = getSizeOfAllDataSets(foodDepData);
 
 
-sizesOfEachClusterInFoodDepData = getSizesOfEachCluster("C:\Users\ldd77\OneDrive\Desktop\" + ...
-    "UTEP-Brain-Computation-Lab-Remote-Databases-and-Serendipity-App\" + ...
-    "Find Euclidian Distances From Baseline to Experiments\" + ...
-    "Create Probability Tables\Food Deprivation");
+sizesOfEachClusterInFoodDepData = getSizesOfEachCluster("Food Deprivation");
+
+probabilities = calculatePopulationProbabilities(sizesOfEachClusterInFoodDepData,sizesOfFoodDepData);
 
 
 
-probabilitiesOfEachClusterInFoodDepData = calculatePopulationProbabilities(sizesOfEachClusterInFoodDepData,sizesOfFoodDepData);
-assignin('base','probabilitiesOfEachClusterInFoodDepData',probabilitiesOfEachClusterInFoodDepData)
+Cluster_Names = keys(probabilities).';
+Probabilities = values(probabilities).';
+tableOfClusterProbabilities = table(Cluster_Names,Probabilities);
 
-eachRatsAppearnecesInFoodDepData = countRatAppearencesInDataset(foodDepData);
-assignin('base','eachRatsAppearnecesInFoodDepData',eachRatsAppearnecesInFoodDepData)
-eachRatsAppearencesInFoodDepClusters = countRatAppearencesInCluster(foodDeprDirectory);
-assignin('base','eachRatsAppearencesInFoodDepClusters',eachRatsAppearencesInFoodDepClusters)
+writetable(tableOfClusterProbabilities,'Food_Deprivation_cluster_probabilities.csv');

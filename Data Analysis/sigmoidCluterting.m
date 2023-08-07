@@ -1,5 +1,5 @@
 
-myDir = "C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab\Data Analysis\Reward Choice\Sigmoid Data"; %gets directory
+myDir = "C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab\Data Analysis\Data Analysis\Reward Choice\Sigmoid Data"; %gets directory
 myFiles = dir(fullfile(myDir,'*.mat')); %gets all .mat files in struct
 A = [];
 B = [];
