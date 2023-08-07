@@ -1,0 +1,48 @@
+Get the intensityofCost1-4 variables for the last 1000 entries in the table
+	SELECT intensityOfCost1,intensityOfCost2,intensityOfCost3,intensityOfCost4 FROM 	live_table ORDER BY id DESC LIMIT 1000;
+
+list all the columns of live_table 
+	\d live_table
+
+Count all the trials where intensityOfCost 1 is 15lux
+	SELECT COUNT(*) FROM live_table WHERE intensityOfCost1 LIKE '15%';
+
+COUNT all the trials where lightlevel(low) is 
+	SELECT COUNT(*) FROM live_table WHERE lightlevel='1';
+
+count all trials where light level is 2,3 (high)
+	SELECT COUNT(*) FROM live_table WHERE lightlevel='2' OR lightlevel='3';
+
+list all experiments 
+	SELECT DISTINCT health FROM live_table;
+
+count all normal trials
+	SELECT COUNT(*) health FROM live_table WHERE LOWER(health) LIKE '%none%' or LOWER(health) LIKE 'n/a';
+
+count all trials
+	SELECT COUNT(*) FROM live_table;
+
+count all normal trials where a male performed
+	SELECT COUNT(*) health FROM live_table WHERE LOWER(health) LIKE '%none%' or LOWER(health) LIKE 'n/a' AND LOWER(gender) = 'male';
+
+count all normal trials where a female performed
+	SELECT COUNT(*) health FROM live_table WHERE LOWER(health) LIKE '%none%' or LOWER(health) LIKE 'n/a' AND LOWER(gender) = 'female';
+
+count how many trials were formed on the last day
+	SELECT date FROM live_table ORDER BY id DESC LIMIT 1;
+	SELECT DISTINCT(*) FROM live_table ORDER BY id DESC LIMIT 1;
+
+get size of database
+	SELECT pg_size_pretty(pg_database_size('live_database'));
+
+get all craving,incubation,and oxy from the database
+	SELECT referencetime, subjectid, mazenumber FROM live_table WHERE LOWER(health) LIKE '%oxy%' OR LOWER(health) LIKE '%incubation%' OR LOWER(health) LIKE '%craving%';
+
+count all craving,incubation, and oxy data from the database
+	SELECT COUNT(*) FROM live_table WHERE LOWER(health) LIKE '%oxy%' OR LOWER(health) LIKE '%incubation%' OR LOWER(health) LIKE '%craving%';
+
+count all OXy data
+	SELECT COUNT(*) from oxy_rewardChoicePsychometricFunctions;
+	SELECT COUNT(*) FROM oxy_rotationPointsPsychometricFunctions;
+	SELECT COUNT(*) FROM oxy_stoppingPointsPsychometricFunctions;
+	SELECT COUNT(*) FROM oxy_travelPixelPsychometricFunctions;

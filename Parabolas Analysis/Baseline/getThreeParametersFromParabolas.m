@@ -42,10 +42,10 @@ function getThreeParametersFromParabolas
 
 
 
-% plotTheValues("Reaction Time Parabolas Data","Reaction Time",1)
-% plotTheValues("Reward Choice Parabola Data","Reward Choice",1)
-% plotTheValues("Rotation Points Parabola Data","Rotation Points",1)
-% plotTheValues("Stopping Points Parabolas Data","Stopping Points",1)
-% plotTheValues("Travel Pixel Parabola Data","Travel Pixel",1)
+plotTheValues("Reaction Time Parabolas Data","Reaction Time",1)
+plotTheValues("Reward Choice Parabola Data","Reward Choice",1)
+plotTheValues("Rotation Points Parabola Data","Rotation Points",1)
+plotTheValues("Stopping Points Parabolas Data","Stopping Points",1)
+plotTheValues("Travel Pixel Parabola Data","Travel Pixel",1)
 
 end

@@ -1,5 +1,5 @@
 
-myDir = "C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab\Data Analysis\Travel Pixel\All Sigmoids"; %gets directory
+myDir = "C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab-Remote-Databases-and-Serendipity-App\Data Analysis\Old Base Data\Travel Pixel\All Sigmoids"; %gets directory
 myFiles = dir(fullfile(myDir,'*.mat')); %gets all .mat files in struct
 A = [];
 B = [];
@@ -8,8 +8,10 @@ D = [];
 newTable= table(A,B,C,D);
 for k = 1:length(myFiles)
     baseFileName = myFiles(k).name;
-    fullFileName = fullfile("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab\Data Analysis\Travel Pixel\All Sigmoids", baseFileName);
-%     fprintf(1, 'Now reading %s\n', fullFileName);
+    fullFileName = fullfile("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab-Remote-Databases-and-Serendipity-App\Data Analysis\Old Base Data\Travel Pixel\All Sigmoids", baseFileName);
+%   
+% 
+% fprintf(1, 'Now reading %s\n', fullFileName);
     load(fullFileName)
     try
         C = {fitobject3.a,fitobject3.b,fitobject3.c,baseFileName};

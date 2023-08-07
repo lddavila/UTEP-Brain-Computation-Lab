@@ -1,0 +1,52 @@
+1.) Run automizePsychometricFunction.m
+	This function will group the trial data by sessions, and analyze each of these sessions for the Travel Pixel, Stopping Points, Rotation Points and Reward Choice features.
+	Then it will write the analysis to the deisgnated table in the database
+
+2.) Run sigmoidAnalysis.m
+	This function will read the appropriate table in the database and fit each row in the table (each row represents a session of data) with a linear, parabolic, and a 2, 3, and 4 parameter sigmoidal model
+	It will determine which of these models best represents the data and then sort it into one of several folders
+
+
+
+3.) Call the createThePlot(param1, param2, param3,param4,param5,param6,param7) function
+	This function servers 3 utilities
+		1.)It utilizes Fuzzy C-Means clustering to cluster a given nx2 array (param1), with string labels (param2), with a desired number of clusters (param 3) and displays it into a figure
+		2.)It will a print a 0-1 score of your clustering with 1 being better
+		3.)It will create a directory "All Clusters In Dataset" in your current directory and write all of the desired clusters with labels to this dataset
+			Note that while multiple running of this function might produce the same clusters, different names might be assigned to them
+			This is due to the fact that Fuzzy C-Means clustering picks a random starting point
+			You may overwrite old clusters by running this function multiple times
+			To avoid this change param7
+
+		-param1: an n row by 2 column array which contains the x & y data for the clusters you are trying to create
+		-param2: an n row by 2 column string array that has the session labels for each data point, both columns should be identical 
+		-param3: This is how many clusters you expect in the data
+				This number should be altered to maximize the score printed by running this
+		-param4: A string representing what will go along the x-axis of the figure
+		-param5: A string representing what will go along the y-axis of the figure
+		-param6: A string representing what feature is being clustered
+		-param7:  An arbitrary letter used when writing the found clusters to a file
+				This letter should be changed for each feature you are analyzing
+				The ideal letters to be used for each feature should be: A=Travel Pixel, D= Stopping Points, G = Rotation Points, J = Reaction Time, M = Reward Choice
+				These are ideal because the creation of Probability Tables relies on these names, but if one is inclined they can rewrite the Probability Tables Code to accept different names
+
+Examples of how to use createThePlot(param1, param2, param3,param4,param5,param6,param7) can be found in createRotationPointsMaxVsShift.m, createStoppingPointsMaxVsShift.m, createTravelPixelMaxVsShift.m, and createRewardChoiceMaxVsShift.m.
+Below see an explanation of createRewardChoiceMaxVsShift.m
+
+	In this file the sigmoid data for the reward choice variable is retrieved from the given file path, you will need to change this file path to match where the data is stored on your local computer
+	Then from the data we extract the A column (Sigmoid Max) and the B (The horizontal shift of the sigmoid) and do a log absolute value scale on both.
+	We also extract column D which contains the labels for the data
+	Finally we call createThePlot([sigmoid max, horizontal Shift],[labels for the data,labels for the data],"Max","Shift","Reward Choice","M")
+		-[sigmoid max, horizontal shift] is the log absolute value of columns A and B of the reward choice
+		-[labels for the data, labels for the data]  is a string array that has the session labels for each data point 
+		-3 This is how many clusters you expect in the data
+			This number should be altered to maximize the score printed by running this
+		-"Max" A string representing what will go along the x-axis of the figure
+		-"Shift" A string representing what will go along the y-axis of the figure
+		-"Reward Choice" A string representing what feature is being clustered
+		-"M" An arbitrary letter used when writing the found clusters to a file
+			This letter should be changed for each feature you are analyzing
+
+4.) From this point you should have a folder called "All Clusters in Dataset" created in your working directory
+5.) This folder should have all of the clusters you have created for each feature as described above
+6.) While 
