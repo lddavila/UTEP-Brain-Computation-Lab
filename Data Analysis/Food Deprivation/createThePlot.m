@@ -23,19 +23,20 @@ function x = createThePlot(xVsY1, labels1, numberOfClusters1,xVsY2,labels2,numbe
         scatter([xVsY2(indexes,1)],xVsY2(indexes,2),plotColors(plotCounter))
         hold on
         plot(centers(i,1),centers(i,2),'xr','MarkerSize',15,'LineWidth',3)
-%         clusterTable = getClusterTable(xVsY2,labels2,indexes);
+        clusterTable = getClusterTable(xVsY2,labels2,indexes);
 
         if plotCounter == 8
             plotCounter = 1;
         else
             plotCounter = plotCounter+1;
         end
+        writetable(clusterTable,strcat(pwd,"\",name," " ,xAxis," Vs ",yAxis," Cluster ", string(i), ".xlsx"))
+        title(strcat(name," ",xAxis, " vs ", yAxis, " Clusters"))
+        xlabel(xAxis)
+        ylabel(yAxis)
     end
     hold on
 
-%     writetable(clusterTable,strcat("C:\Users\ldd77\OneDrive\Desktop\Raw Figures\Cluster Tables\5 Feature Cluster Tables Ghrelin\",name," " ,xAxis," Vs ",yAxis," Cluster ", string(i), ".xlsx"))
-    title(strcat(name," ",xAxis, " vs ", yAxis, " Clusters"))
-    xlabel(xAxis)
-    ylabel(yAxis)
+
     calculate_mpc(U)
 end
