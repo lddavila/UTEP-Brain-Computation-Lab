@@ -11,7 +11,7 @@ function x = createThePlot(xVsY, labels, numberOfClusters,xAxis,yAxis,name)
         scatter([xVsY(indexes,1)],xVsY(indexes,2),plotColors(plotCounter))
         plot(centers(i,1),centers(i,2),'xk','MarkerSize',15,'LineWidth',3)
         clusterTable = getClusterTable(xVsY,labels,indexes);
-        writetable(clusterTable,strcat("C:\Users\ldd77\OneDrive\Desktop\Raw Figures\Cluster Tables\",name," " ,xAxis," Vs ",yAxis," Cluster ", string(i), ".xlsx"))
+        %writetable(clusterTable,strcat("C:\Users\ldd77\OneDrive\Desktop\Raw Figures\Cluster Tables\",name," " ,xAxis," Vs ",yAxis," Cluster ", string(i), ".xlsx"))
         if plotCounter == 10
             plotCounter = 1;
         else

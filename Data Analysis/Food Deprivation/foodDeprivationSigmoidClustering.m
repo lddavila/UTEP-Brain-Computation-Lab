@@ -53,17 +53,18 @@ function foodDeprivationSigmoidClustering
 currentFolder = pwd;
 display(currentFolder)
 
-% travelPixelSigmoidTableFoodDeprivation = getTable(strcat(currentFolder,"\Travel Pixel Sigmoid Data"));
-% travelPixelSigmoidTable=getTable("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab\Data Analysis\Travel Pixel\All Sigmoids");
-% createMaxVsShiftPlot(travelPixelSigmoidTable,3,travelPixelSigmoidTableFoodDeprivation,3,"Travel Pixel")
+travelPixelSigmoidTableFoodDeprivation = getTable(strcat(currentFolder,"\Travel Pixel Sigmoid Data"));
+travelPixelSigmoidTable=getTable("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab-Remote-Databases-and-Serendipity-App\Data Analysis\Old Base Data\Travel Pixel Sigmoid Data");
+createMaxVsShiftPlot(travelPixelSigmoidTable,3,travelPixelSigmoidTableFoodDeprivation,3,"Travel Pixel")
 % figure
 % createMaxVsSteepnessPlot(travelPixelSigmoidTable,3,travelPixelSigmoidTableFoodDeprivation,3,"Travel Pixel")
 % figure
 % createShiftVsSteepnessPlot(travelPixelSigmoidTable,4,travelPixelSigmoidTableFoodDeprivation,3,"Travel Pixel")
 % 
-% stoppingPointsSigmoidTableFoodDeprivation = getTable(strcat(currentFolder,"\Stopping Points Sigmoid Data"));
-% stoppingPointsSigmoidTable = getTable("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab\Data Analysis\Stopping Points\All Sigmoids");
-% createMaxVsShiftPlot(stoppingPointsSigmoidTable,3,stoppingPointsSigmoidTableFoodDeprivation,3,"Stopping Points")
+stoppingPointsSigmoidTableFoodDeprivation = getTable(strcat(currentFolder,"\Stopping Points Sigmoid Data"));
+stoppingPointsSigmoidTable = getTable("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab-Remote-Databases-and-Serendipity-App\Data Analysis\Old Base Data\Stopping Points Sigmoid Data");
+figure
+createMaxVsShiftPlot(stoppingPointsSigmoidTable,3,stoppingPointsSigmoidTableFoodDeprivation,3,"Stopping Points")
 % figure
 % createMaxVsSteepnessPlot(stoppingPointsSigmoidTable,4,stoppingPointsSigmoidTableFoodDeprivation,4,"Stopping Points")
 % figure
@@ -87,13 +88,13 @@ display(currentFolder)
 % createShiftVsSteepnessPlot(reactionTimeSigmoidTable,4,reactionTimeSigmoidTableFoodDeprivation,3,"Reaction Time")
 % 
 % 
-rewardChoiceSigmoidTableFoodDeprivation =getTable(strcat(pwd,"\Reward Choice Sigmoid Data"));
-rewardChoiceSigmoidTable = getTable("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab\Data Analysis\Reward Choice\All Sigmoids");
+% rewardChoiceSigmoidTableFoodDeprivation =getTable(strcat(pwd,"\Reward Choice Sigmoid Data"));
+% rewardChoiceSigmoidTable = getTable("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab\Data Analysis\Reward Choice\All Sigmoids");
 
 % createMaxVsShiftPlot(rewardChoiceSigmoidTable,4,rewardChoiceSigmoidTableFoodDeprivation,3,"Reward Choice")
 % figure
 % createMaxVsSteepnessPlot(rewardChoiceSigmoidTable,3,rewardChoiceSigmoidTableFoodDeprivation,2,"Reward Choice")
 % figure
-createShiftVsSteepnessPlot(rewardChoiceSigmoidTable,3,rewardChoiceSigmoidTableFoodDeprivation,2,"Reward Choice")
+% createShiftVsSteepnessPlot(rewardChoiceSigmoidTable,3,rewardChoiceSigmoidTableFoodDeprivation,2,"Reward Choice")
 % 
 end
