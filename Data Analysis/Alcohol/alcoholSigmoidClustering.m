@@ -53,10 +53,14 @@ function alcoholSigmoidClustering
 currentFolder = pwd;
 display(currentFolder)
 
-% travelPixelSigmoidTableIsoflurene = getTable(strcat(currentFolder,"\Travel Pixel Sigmoid Data"));
-% travelPixelSigmoidTable=getTable("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab\Data Analysis\Travel Pixel\All Sigmoids");
-% createMaxVsShiftPlot(travelPixelSigmoidTable,3,travelPixelSigmoidTableIsoflurene,3,"Travel Pixel")
-% figure
+travelPixelSigmoidTableAlcohol = getTable("..\Boost and Etho\Travel Pixel Sigmoid Data");
+travelPixelSigmoidTable=getTable("..\Old Base Data\Travel Pixel Sigmoid Data");
+createMaxVsShiftPlot(travelPixelSigmoidTable,3,travelPixelSigmoidTableAlcohol,3,"Travel Pixel")
+
+figure
+stoppingPointsSigmoidTableAlcohol = getTable("..\Boost and Etho\Stopping Points Sigmoid Data");
+stoppingPointsSigmoidTable = getTable("..\Old Base Data\Stopping Points Sigmoid Data");
+createMaxVsShiftPlot(stoppingPointsSigmoidTable,3,stoppingPointsSigmoidTableAlcohol,3,"Stopping Points")
 % createMaxVsSteepnessPlot(travelPixelSigmoidTable,3,travelPixelSigmoidTableIsoflurene,3,"Travel Pixel")
 % figure
 % createShiftVsSteepnessPlot(travelPixelSigmoidTable,4,travelPixelSigmoidTableIsoflurene,4,"Travel Pixel")
@@ -87,13 +91,13 @@ display(currentFolder)
 % createShiftVsSteepnessPlot(reactionTimeSigmoidTable,4,reactionTimeSigmoidTableIsoflurene,3,"Reaction Time")
 % 
 % 
-rewardChoiceSigmoidTableIsoflurene =getTable(strcat(pwd,"\Reward Choice Sigmoid Data"));
-rewardChoiceSigmoidTable = getTable("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab\Data Analysis\Reward Choice\All Sigmoids");
-
-% createMaxVsShiftPlot(rewardChoiceSigmoidTable,4,rewardChoiceSigmoidTableIsoflurene,4,"Reward Choice")
-% figure
-% createMaxVsSteepnessPlot(rewardChoiceSigmoidTable,3,rewardChoiceSigmoidTableIsoflurene,3,"Reward Choice")
-% figure
-createShiftVsSteepnessPlot(rewardChoiceSigmoidTable,3,rewardChoiceSigmoidTableIsoflurene,3,"Reward Choice")
+% rewardChoiceSigmoidTableAlcohol =getTable(strcat(pwd,"\Reward Choice Sigmoid Data"));
+% rewardChoiceSigmoidTable = getTable("C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab\Data Analysis\Reward Choice\All Sigmoids");
+% 
+% % createMaxVsShiftPlot(rewardChoiceSigmoidTable,4,rewardChoiceSigmoidTableIsoflurene,4,"Reward Choice")
+% % figure
+% % createMaxVsSteepnessPlot(rewardChoiceSigmoidTable,3,rewardChoiceSigmoidTableIsoflurene,3,"Reward Choice")
+% % figure
+% createShiftVsSteepnessPlot(rewardChoiceSigmoidTable,3,rewardChoiceSigmoidTableAlcohol,3,"Reward Choice")
 % 
 end
