@@ -30,7 +30,7 @@ function x = createThePlot(xVsY1, labels1, numberOfClusters1,xVsY2,labels2,numbe
         else
             plotCounter = plotCounter+1;
         end
-        writetable(clusterTable,strcat(pwd,"\",name," " ,xAxis," Vs ",yAxis," Cluster ", string(i), ".xlsx"))
+%         writetable(clusterTable,strcat(pwd,"\",name," " ,xAxis," Vs ",yAxis," Cluster ", string(i), ".xlsx"))
         title(strcat(name," ",xAxis, " vs ", yAxis, " Clusters"))
         xlabel(xAxis)
         ylabel(yAxis)

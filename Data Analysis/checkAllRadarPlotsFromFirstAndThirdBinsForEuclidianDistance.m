@@ -1,7 +1,7 @@
 %use this file to find radar plots which are most similar and most different based off of euclidian distance
 
-directoryOfAlcoholRadarPlots = "C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab-Remote-Databases-and-Serendipity-App\Data Analysis\All Alcohol Probability Tables";
-directoryOfBaseDataRadarPlots = "C:\Users\ldd77\OneDrive\Desktop\UTEP-Brain-Computation-Lab-Remote-Databases-and-Serendipity-App\Data Analysis\Old Base Data\All Probability Tables 28d";
+directoryOfAlcoholRadarPlots = "..\Data Analysis\All Alcohol Probability Tables";
+directoryOfBaseDataRadarPlots = "..\Data Analysis\Old Base Data\All Probability Tables 28d";
 %modify the above directories to point towards the folder All Probability Tables On Your Local Machine. 
 allRadarPlotsInAlc1 = ls(strcat(directoryOfAlcoholRadarPlots,"\*.xlsx"));
 allRadarPlotsInBase = ls(strcat(directoryOfBaseDataRadarPlots,"\*.xlsx"));
