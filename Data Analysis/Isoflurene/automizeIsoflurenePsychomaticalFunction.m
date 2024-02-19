@@ -921,7 +921,7 @@ function automizeIsoflurenePsychomaticalFunction
 
         end
     end
-    function stoppingPointsLoop(T)
+    function stoppingPointsLoop(T)             
         counter = 1;
         while counter <= size(T,1)
             try
