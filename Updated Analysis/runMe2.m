@@ -206,7 +206,7 @@ get_euc_dist_between_rats_first_and_last_bin_for_sp_plts(rebinned_dirs,experimen
 home_dir=cd("Cluster_Tables");
 addpath(pwd);
 cd(home_dir)
-% Below lines and the functions they used are authored by Atanu Giri
+Below lines and the functions they used are authored by Atanu Giri
 clusterWithDifferentXY('Baseline RP1_1.xlsx', 'Baseline SP_1.xlsx'); %Fig 5j
 BaselineVsTreatmentCluster('Baseline', 'Food_Deprivation') %fig 5k
 clusterWithDifferentXY('Baseline ET_1.xlsx', 'Baseline RP1_1.xlsx') %fig 6t

@@ -16,7 +16,7 @@ if ~isempty(match1) || ~isempty(match2)
     feature2 = match2{2};
 end
 
-folderPath = strcat(pwd,'\Baseline_Oxy_FoodDep_BoostAndEtho_Ghrelin_Saline_Cluster_Tables');
+folderPath = strcat(pwd,'\Cluster_Tables');
 numClusters = 3;
 
 %% BL data

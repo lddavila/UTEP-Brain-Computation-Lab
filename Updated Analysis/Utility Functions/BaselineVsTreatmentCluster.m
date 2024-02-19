@@ -5,7 +5,7 @@ function BaselineVsTreatmentCluster(baseline, treatment)
 % baseline = 'Saline';
 % treatment = 'Ghrelin';
 
-folderPath = [pwd,'\Baseline_Oxy_FoodDep_BoostAndEtho_Ghrelin_Saline_Cluster_Tables'];
+folderPath = [pwd,'\Cluster_Tables'];
 
 % List all files in the folder
 files = dir(fullfile(folderPath, '*.xlsx'));
