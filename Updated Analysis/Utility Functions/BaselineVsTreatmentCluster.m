@@ -2,10 +2,10 @@
 % Date: 02/07/2024
 
 function BaselineVsTreatmentCluster(baseline, treatment)
-% baseline = 'Saline';
-% treatment = 'Ghrelin';
+% baseline = 'Baseline';
+% treatment = 'Oxy';
 
-folderPath = [pwd,'\Cluster_Tables'];
+folderPath = strcat(pwd,'\Cluster_Tables');
 
 % List all files in the folder
 files = dir(fullfile(folderPath, '*.xlsx'));
@@ -19,7 +19,8 @@ for feature = 1:length(blClusters)
     figure(feature);
     set(gcf, 'Windowstyle', 'docked');
 %     hold on;
-    Colors = lines(2*numClusters);
+%     Colors = lines(2*numClusters);
+    Colors = ["#77AC30", "magenta"];
 
     % Population
     blClusterPopul = zeros(1, numClusters);
@@ -30,26 +31,26 @@ for feature = 1:length(blClusters)
 
     for clusterId = 1:numClusters
         blFilePath = fullfile(folderPath, blClusters{feature}(clusterId));
-        % Define the regular expression pattern for legend
-%         pattern = '(\w+) DT_\d+\.xlsx';
-%         blMatch = regexp(blClusters{feature}(clusterId), pattern, 'tokens', 'once');
-%         blLegend{clusterId} = sprintf('%s C%d', blMatch{1}{1}, clusterId);
-
         blTable = readtable(blFilePath{1});
         blData = [blTable.clusterX, blTable.clusterY];
-        randomEllipseFun(blData, Colors(clusterId,:));
+
+        if isequal(clusterId, 1)
+            jitter_amount = 1; % User adjustable
+            blData(:,2) = blData(:,2) + jitter_amount * randn(size(blData(:,2)));
+        end
+%         randomEllipseFun(blData, Colors(clusterId,:));
+        error_ellipse_fun(blData, 0.68, Colors(1));
         blClusterPopul(clusterId) = size(blData, 1);
 
-
         trtFilePath = fullfile(folderPath, treatmentClusters{feature}(clusterId));
-        % Define the regular expression pattern for legend
-%         pattern = '(\w+) DT_\d+\.xlsx';
-%         trtMatch = regexp(treatmentClusters{feature}(clusterId), pattern, 'tokens', 'once');
-%         trtLegend{clusterId} = sprintf('%s C%d', trtMatch{1}{1}, clusterId);
-
         trtTable = readtable(trtFilePath{1});
         trtData = [trtTable.clusterX, trtTable.clusterY];
-        randomEllipseFun(trtData, Colors(numClusters+clusterId,:));
+        if isequal(clusterId, 1)
+            jitter_amount = 1; % User adjustable
+            trtData(:,2) = trtData(:,2) + jitter_amount * randn(size(trtData(:,2)));
+        end
+%         randomEllipseFun(trtData, Colors(numClusters+clusterId,:));
+        error_ellipse_fun(trtData, 0.68, Colors(2));
         trtClusterPopul(clusterId) = size(trtData, 1);
 
         %% t-test2
@@ -88,13 +89,13 @@ for feature = 1:length(blClusters)
         yPosTrt = 0.7*ylimVals(2);
 
         % Percentage population
-        text(xPos, yPosBl, sprintf('%.2f%%', pctBlData(clusterId)), ...
+        text(xPos, yPosBl, sprintf('%.0f%%', pctBlData(clusterId)), ...
             'HorizontalAlignment', 'center', 'VerticalAlignment', 'bottom');
-        text(xPos, yPosTrt, sprintf('%.2f%%', pctTrtData(clusterId)), ...
+        text(xPos, yPosTrt, sprintf('%.0f%%', pctTrtData(clusterId)), ...
             'HorizontalAlignment', 'center', 'VerticalAlignment', 'bottom', 'Color', 'red');
 
         % Statistics on population
-        text(xPos, 0.5*ylimVals(2), sprintf('popul. p = %.2f', popDiffStat(clusterId)), ...
+        text(xPos, 0.5*ylimVals(2), sprintf('popul. p = %.4f', popDiffStat(clusterId)), ...
             'HorizontalAlignment', 'center', 'VerticalAlignment', 'bottom');
     end
 

@@ -38,14 +38,12 @@ function [p, Q]= chi2test(x)
 % HISTORY:    v.1.0, first working version, 2007-08-30.
 % 
 % COPYRIGHT:  (c) 2007 Peder Axensten. Use at own risk.
-
 % KEYWORDS:   chi-squared test, chi-squared, chi2, test
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	% Check the arguments.
 	if(nargin ~= 1),			error('One and only one argument required!');					end
-	if(ndims(x) ~= 2),			error('The argument (x) must be a 2d matrix!');					end
+	if(~ismatrix(x)),			error('The argument (x) must be a 2d matrix!');					end
 	if(any(size(x) == 1)),		error('The argument (x) must be a 2d matrix!');					end
 	if(any(~isreal(x))),		error('All values of the argument (x) must be real values!');	end
 	

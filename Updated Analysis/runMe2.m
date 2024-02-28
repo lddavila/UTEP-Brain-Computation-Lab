@@ -24,7 +24,7 @@ all_dirs = get_all_directories_with_sigmoid_data("Sigmoids",[]);
 
 % disp(all_dirs)
 %% Get Individual Plots and create their adjoining cluster tables
-% create_individual_plots_2(all_dirs,"Individual_Plots","Cluster_Tables")
+create_individual_plots_2(all_dirs,"Individual_Plots","Cluster_Tables")
 
 %% Calculate Probabilities of Each Cluster and create individual spider plots
 [all_probabilities,list_of_clusters] = get_all_experiments_and_clusters("Cluster_Tables","Spider_Plots");
@@ -188,7 +188,7 @@ concatenate_many_plots("First_and_last_bin_euc_dist_hist","all_first_and_last_bi
 
 %% get directories with rebinned data
 experiment_list = ["Baseline", "Oxy","Boost_And_Etho","Ghrelin","Saline","Food_Deprivation"];
-rebinned_dirs = get_rebinned_directories("Rebinned Cluster Tables",experiment_list);
+rebinned_dirs = get_rebinned_directories("Rebinned Cluster Tables Version 2",experiment_list);
 
 %% get euclidian distance between each rats first and last bin
 experiment_list = ["Baseline", "Oxy","Boost_And_Etho","Ghrelin","Saline","Food_Deprivation"];
@@ -206,8 +206,13 @@ get_euc_dist_between_rats_first_and_last_bin_for_sp_plts(rebinned_dirs,experimen
 home_dir=cd("Cluster_Tables");
 addpath(pwd);
 cd(home_dir)
-Below lines and the functions they used are authored by Atanu Giri
-clusterWithDifferentXY('Baseline RP1_1.xlsx', 'Baseline SP_1.xlsx'); %Fig 5j
-BaselineVsTreatmentCluster('Baseline', 'Food_Deprivation') %fig 5k
-clusterWithDifferentXY('Baseline ET_1.xlsx', 'Baseline RP1_1.xlsx') %fig 6t
-clusterWithDifferentXY('Baseline SP_1.xlsx', 'Baseline ET_1.xlsx') %extended figure 7k
+%Below lines and the functions they used are authored by Atanu Giri
+% clusterWithDifferentXY('Baseline RP1_1.xlsx', 'Baseline SP_1.xlsx'); %Fig 5j
+% BaselineVsTreatmentCluster('Baseline', 'Food_Deprivation') %fig 5k
+% clusterWithDifferentXY('Baseline ET_1.xlsx', 'Baseline RP1_1.xlsx') %fig 6t
+% clusterWithDifferentXY('Baseline SP_1.xlsx', 'Baseline ET_1.xlsx') %extended figure 7k
+
+BaselineVsTreatmentCluster('Baseline', 'Food_Deprivation') %will produce BLvsFD.fig.
+BaselineVsTreatmentCluster('Baseline', 'Oxy')% will produce ConVsOxy.fig.
+BaselineVsTreatmentCluster('Baseline', 'Boost_and_Etho') %will produce ConVsAlc.fig.
+
